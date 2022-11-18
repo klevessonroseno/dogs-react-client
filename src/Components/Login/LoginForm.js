@@ -36,7 +36,11 @@ const LoginForm = () => {
           name={'password'}
           {...password}
         />
-        <Button>Entrar</Button>
+        {loading ? (
+          <Button disabled>Carregando...</Button>
+        ) : (
+          <Button>Entrar</Button>
+        )}
         {error && <p>{error}</p>}
       </form>
 
