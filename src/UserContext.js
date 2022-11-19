@@ -20,7 +20,7 @@ export const UserStorage = ({ children }) => {
       window.localStorage.removeItem('token');
       navigate('/login');
     },
-    [navigate],
+    [navigate]
   );
 
   async function getUser(token) {
@@ -74,6 +74,8 @@ export const UserStorage = ({ children }) => {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false)
       }
     }
     autoLogin();
