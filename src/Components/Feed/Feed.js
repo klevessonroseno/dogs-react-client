@@ -10,10 +10,11 @@ const Feed = () => {
       {modalPhoto && (
         <FeedModal
           photo={modalPhoto}
+          setModalPhoto={setModalPhoto}
         />
       )}
       <FeedPhotos
-        setModalPhotos={setModalPhoto}
+        setModalPhoto={setModalPhoto}
       />
     </>
   )
