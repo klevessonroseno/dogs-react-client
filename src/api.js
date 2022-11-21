@@ -82,3 +82,17 @@ export function PHOTO_GET(id) {
     }
   });
 }
+
+export function COMMENT_POST(id, body, token) {
+  return ({
+    url: `${API_URL}/api/comment/${id}`,
+    options: {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        Authorization: 'Bearer ' + token,
+        'Content-Type': 'application/json',
+      },
+    }
+  });
+}
