@@ -18,6 +18,20 @@
   transition: .2s;
 }
 
+.textArea::-webkit-scrollbar {
+  width: 12px;
+}
+
+.textArea::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.textArea::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  border: 3px solid #fff;
+}
+
 .textArea:focus,
 .textArea:hover {
   outline: none;
