@@ -6,15 +6,11 @@ const Loading = () => {
 
   React.useEffect(() => {
     function updateStep() {
-      setStep((step) => {
-        if (step < 3) return step + 1;
-        else return 0;
-      });
+      setStep(step => step < 3 ? ++step : 0);
     }
     const interval = setInterval(updateStep, 300);
-    return () => {
-      clearInterval(interval);
-    };
+
+    return () => clearInterval(interval);
   }, []);
 
   function displayStep(i) {
