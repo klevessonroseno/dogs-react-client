@@ -26,6 +26,7 @@ const Feed = ({ user }) => {
       }
     }
 
+    window.addEventListener('keydown', infiniteScroll)
     window.addEventListener('wheel', infiniteScroll);
     window.addEventListener('scroll', infiniteScroll);
 
