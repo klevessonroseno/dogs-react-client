@@ -108,3 +108,16 @@ export function PHOTO_DELETE(id, token) {
     }
   });
 }
+
+export function PASSWORD_LOST(body) {
+  return {
+    url: API_URL + '/api/password/lost',
+    options: {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+  }
+}
