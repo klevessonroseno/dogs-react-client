@@ -121,3 +121,16 @@ export function PASSWORD_LOST(body) {
     }
   }
 }
+
+export function PASSWORD_RESET(body) {
+  return {
+    url: API_URL + '/api/password/reset',
+    options: {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }
+  }
+}
