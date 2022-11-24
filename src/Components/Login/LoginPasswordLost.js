@@ -5,6 +5,7 @@ import useForm from '../../Hooks/useForm';
 import { PASSWORD_LOST } from '../../api';
 import useFetch from '../../Hooks/useFetch';
 import Error from '../Helper/Error';
+import Head from '../Helper/Head';
 
 const LoginPasswordLost = () => {
   const login = useForm();
@@ -27,29 +28,35 @@ const LoginPasswordLost = () => {
   }
 
   return (
-    <section>
-      <h1 className='title'>Perdeu a senha?</h1>
-      {data ? (
-        <p style={{ color: '#4c1', fontWeight: 'bold' }}>{data}</p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <Input
-            label={'Email / Usuário'}
-            name={'login'}
-            type={'text'}
-            {...login}
-          />
-          {loading ? (
-            <Button disabled>Enviando...</Button>
-          ) : (
-            <Button>Enviar Email</Button>
-          )}
-        </form>
-      )
-      }
+    <>
+      <Head
+        title={'Esqueci a senha'}
+        description={`Página para criar uma nova conta no site Dogs.`}
+      />
+      <section>
+        <h1 className='title'>Perdeu a senha?</h1>
+        {data ? (
+          <p style={{ color: '#4c1', fontWeight: 'bold' }}>{data}</p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <Input
+              label={'Email / Usuário'}
+              name={'login'}
+              type={'text'}
+              {...login}
+            />
+            {loading ? (
+              <Button disabled>Enviando...</Button>
+            ) : (
+              <Button>Enviar Email</Button>
+            )}
+          </form>
+        )
+        }
 
-      <Error error={error} />
-    </section >
+        <Error error={error} />
+      </section >
+    </>
   )
 }
 

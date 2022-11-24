@@ -7,6 +7,7 @@ import useFetch from '../../Hooks/useFetch';
 import { PHOTO_POST } from '../../api';
 import Error from '../Helper/Error';
 import { useNavigate } from 'react-router-dom';
+import Head from '../Helper/Head';
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -44,50 +45,56 @@ const UserPhotoPost = () => {
   }, [data]);
 
   return (
-    <section className={`${styles.photoPost} animeLeft`}>
-      <form onSubmit={handleSubmit}>
-        <Input
-          label='Nome'
-          type='text'
-          name='nome'
-          {...nome}
-        />
-        <Input
-          label='Peso'
-          type='number'
-          name='peso'
-          {...peso}
-        />
-        <Input
-          label='Idade'
-          type='number'
-          name='idade'
-          {...idade}
-        />
-        <input
-          className={styles.file}
-          type="file"
-          name="img"
-          id="img"
-          onChange={handleImgChange}
-        />
-        {loading ? (
-          <Button disabled>Enviando...</Button>
-        ) : (
-          <Button>Enviar</Button>
-        )}
-        <Error error={error} />
-      </form>
-      <div>
-        {img.preview && (
-          <div
-            className={styles.preview}
-            style={{ backgroundImage: `url('${img.preview}')` }}
-          >
-          </div>
-        )}
-      </div>
-    </section >
+    <>
+      <Head
+        title={'Poste Sua Foto'}
+        description={'Página para criação de uma nova foto do site Dogs.'}
+      />
+      <section className={`${styles.photoPost} animeLeft`}>
+        <form onSubmit={handleSubmit}>
+          <Input
+            label='Nome'
+            type='text'
+            name='nome'
+            {...nome}
+          />
+          <Input
+            label='Peso'
+            type='number'
+            name='peso'
+            {...peso}
+          />
+          <Input
+            label='Idade'
+            type='number'
+            name='idade'
+            {...idade}
+          />
+          <input
+            className={styles.file}
+            type="file"
+            name="img"
+            id="img"
+            onChange={handleImgChange}
+          />
+          {loading ? (
+            <Button disabled>Enviando...</Button>
+          ) : (
+            <Button>Enviar</Button>
+          )}
+          <Error error={error} />
+        </form>
+        <div>
+          {img.preview && (
+            <div
+              className={styles.preview}
+              style={{ backgroundImage: `url('${img.preview}')` }}
+            >
+            </div>
+          )}
+        </div>
+      </section >
+    </>
   )
 }
 

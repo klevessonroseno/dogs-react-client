@@ -1,8 +1,15 @@
 import React from 'react';
+import Head from '../Helper/Head';
 
 const UserStats = () => {
   return (
-    <div>UserStats</div>
+    <>
+      <Head
+        title={'Estatísticas'}
+        description={'Página para visualização das estatísticas do usuário do site Dogs.'}
+      />
+      <div>UserStats</div>
+    </>
   )
 }
 
